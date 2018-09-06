@@ -1,6 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "sfml_gui_button.hpp"
+#include "sfml_gui.hpp"
 
 int main () {
 	sf::RenderWindow window(sf::VideoMode(600, 400), "Test", sf::Style::Titlebar | sf::Style::Close);
