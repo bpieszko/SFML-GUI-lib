@@ -1,12 +1,12 @@
-PACKAGE 		= SFML-GUI-lib
-VERSION 		= 1.0.0
+PACKAGE			= SFML-GUI-lib
+VERSION			= 1.0.0
 
-SRC_DIR 		= src
-BUILD_DIR 		= build
-INCLUDE_DIR 	= include
+SRC_DIR			= src
+BUILD_DIR		= build
+INCLUDE_DIR		= include
 
-CXX      		= g++-7 -std=c++17
-CXXFLAGS 		= -I$(INCLUDE_DIR) -DVERSION=\"$(VERSION)\"
+CXX				= g++-7 -std=c++17
+CXXFLAGS		= -I$(INCLUDE_DIR) -DVERSION=\"$(VERSION)\"
 
 HEADERS			= $(wildcard include/*.hpp)
 SOURCES			= $(wildcard src/*.cpp)
