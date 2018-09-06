@@ -13,7 +13,7 @@ int main () {
 	button.setBackgroundColor(sf::Color(201, 201, 201));
 	button.setTextColor(sf::Color(38, 38, 38));
 	sf::Font font;
-	if (!font.loadFromFile("arial.ttf")) {
+	if (!font.loadFromFile("src/arial.ttf")) {
 		std::cerr << "[!] Cannot load font." << std::endl;
 		return 1;
 	}

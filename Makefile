@@ -19,8 +19,12 @@ DISTRIBUTION	= $(HEADERS) $(SOURCES) $(EXTRAS)
 all: $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SOURCES))
 	rm $(BUILD_DIR)/*.d
 
+test: $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SOURCES))
+	$(CXX) $(CXXFLAGS) -o app.e $< main.cpp $(LIBS)
+	rm $(BUILD_DIR)/*.d
+
 clean: 
-	rm -f build/*.o $(PACKAGE)$(LIBEXT)
+	rm -f $(BUILD_DIR)/*.o $(PACKAGE)$(LIBEXT) app.e
 
 dist:
 	mkdir $(PACKAGE)-$(VERSION)
