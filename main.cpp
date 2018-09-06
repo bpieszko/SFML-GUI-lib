@@ -6,17 +6,18 @@ int main () {
 	sf::RenderWindow window(sf::VideoMode(600, 400), "Test", sf::Style::Titlebar | sf::Style::Close);
 	window.setFramerateLimit(30);
 
+	sf::Font font;
+	if (!font.loadFromFile("src/arial.ttf")) {
+		std::cerr << "[!] Cannot load font." << std::endl;
+		return 1;
+	}
+
 	sf::GUI::Button button;
 	button.setText("OK");
 	button.setSize(sf::Vector2f(200, 100));
 	button.setPosition(sf::Vector2f(10, 50));
 	button.setBackgroundColor(sf::Color(201, 201, 201));
 	button.setTextColor(sf::Color(38, 38, 38));
-	sf::Font font;
-	if (!font.loadFromFile("src/arial.ttf")) {
-		std::cerr << "[!] Cannot load font." << std::endl;
-		return 1;
-	}
 	button.setTextFont(font);
 	button.setBackgroundColorHover(sf::Color(173, 173, 173));
 	button.setTextColorHover(sf::Color(38, 38, 38));
@@ -25,6 +26,15 @@ int main () {
 	button.setOutlineColorHover(sf::Color(38, 38, 38));
 	button.setCharacterSize(20);
 	button.setBackgroundColorClicked(sf::Color(100, 100, 100));
+
+	sf::GUI::Label label;
+	label.setSize(sf::Vector2f(100, 20));
+	label.setPosition(sf::Vector2f(10, 10));
+	label.setBackgroundColor(sf::Color(201, 201, 201));
+	label.setText("counter: ");
+	label.setTextFont(font);
+	label.setTextColor(sf::Color(38, 38, 38));
+	label.setCharacterSize(16);
 
 	while (window.isOpen()) {
 		sf::Event event;
@@ -50,6 +60,7 @@ int main () {
 		}
 		window.clear();
 		window.draw(button);
+		window.draw(label);
 		window.display();
 	}
 

@@ -15,7 +15,7 @@ void Button::draw(sf::RenderTarget & target, sf::RenderStates states) const {
 	t_text.setFont(f_text);
 
 	unsigned x_text = (rs_button.getSize().x - t_text.getLocalBounds().width) / 2;
-	unsigned y_text = (rs_button.getSize().y - t_text.getCharacterSize()) / 2;
+	unsigned y_text = (rs_button.getSize().y - t_text.getLocalBounds().height) / 2;
 	t_text.setPosition(rs_button.getPosition().x + x_text, rs_button.getPosition().y + y_text);
 
 	if (this->isOnHover()) {

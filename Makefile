@@ -20,7 +20,7 @@ all: $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SOURCES))
 	rm $(BUILD_DIR)/*.d
 
 test: $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SOURCES))
-	$(CXX) $(CXXFLAGS) -o app.e $< main.cpp $(LIBS)
+	$(CXX) $(CXXFLAGS) -o app.e $^ main.cpp $(LIBS)
 	rm $(BUILD_DIR)/*.d
 
 clean: 
@@ -33,5 +33,5 @@ dist:
 	tar -zcvf $(PACKAGE)-$(VERSION).tar.gz $(PACKAGE)-$(VERSION)
 	rm -rf $(PACKAGE)-$(VERSION)
 
-$(BUILD_DIR)/%.o : $(SRC_DIR)/%.cpp
-	$(CXX) $(CXXFLAGS) -MD -c $< -o $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $<)
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $<)
