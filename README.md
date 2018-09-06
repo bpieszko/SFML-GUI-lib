@@ -1,14 +1,14 @@
-#SFML-GUI-lib
+# SFML-GUI-lib
 
-##Description
+## Description
 To do.
 
-##Build
-```
+## Build
+```bash
 make
 ```
 
-##Using
+## Using
 ```cpp
 #include "sfml_gui.hpp"
 ```
