@@ -1,5 +1,4 @@
 #include "sfml_gui_textfield.hpp"
-#include <iostream>
 
 using namespace sf::GUI;
 

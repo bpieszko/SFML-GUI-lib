@@ -1,10 +1,10 @@
 #include "sfml_gui_button.hpp"
-
 using namespace sf::GUI;
 
 /* DRAW */
 void Button::draw(sf::RenderTarget & target, sf::RenderStates states) const {
 	sf::RectangleShape rs_button;
+
 	rs_button.setSize(v2_size);
 	rs_button.setPosition(v2_position);
 	rs_button.setOutlineThickness(u_outline_thickness);

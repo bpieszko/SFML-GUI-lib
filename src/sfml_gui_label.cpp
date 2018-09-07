@@ -55,6 +55,15 @@ unsigned Label::getCharacterSize() const {
 	return u_text;
 }
 
+
+unsigned Label::getOutlineThickness() const {
+	return u_outline_thickness;
+}
+
+sf::Color Label::getOutlineColor() const {
+	return c_outline;
+}
+
 /* SETTERS */
 void Label::setText(const std::string & s_text_arg) {
 	s_text = s_text_arg;
@@ -82,4 +91,13 @@ void Label::setPosition(const sf::Vector2f & v2_position_arg) {
 
 void Label::setCharacterSize(const unsigned u_text_arg) {
 	u_text = u_text_arg;
+}
+
+
+void Label::setOutlineThickness(const unsigned u_outline_thickness_arg) {
+	u_outline_thickness = u_outline_thickness_arg;
+}
+
+void Label::setOutlineColor(const sf::Color & c_outline_arg) {
+	c_outline = c_outline_arg;
 }

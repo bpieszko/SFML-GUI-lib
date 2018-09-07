@@ -2,29 +2,17 @@
 #define SFML_GUI_BUTTON
 
 #include <SFML/Graphics.hpp>
+#include "sfml_gui_element.hpp"
 #include <string>
 
 namespace sf::GUI 
 {
 
-class Button : public sf::Drawable {
+class Button : public Element {
 /* VARIABLES */
 public:
 
 private:
-	sf::Vector2f 	v2_size;
-	sf::Vector2f 	v2_position;
-
-	sf::Color		c_background;
-
-	unsigned		u_outline_thickness;
-	sf::Color		c_outline;
-	
-	std::string 	s_text;
-	sf::Color		c_text;
-	sf::Font		f_text;
-	unsigned		u_text;
-
 	/* Colors on hover */
 	sf::Color		c_background_hover;
 	sf::Color		c_text_hover;
@@ -42,33 +30,33 @@ public:
 	~Button() = default;
 
 	/* GETTERS */
-	std::string getText() const;
-	sf::Vector2f getSize() const;
-	sf::Vector2f getPosition() const;
-	sf::Color getBackgroundColor() const;
-	sf::Color getTextColor() const;
-	sf::Font getTextFont() const;
+	virtual sf::Vector2f getSize() const;
+	virtual sf::Vector2f getPosition() const;
+	virtual std::string getText() const;
+	virtual sf::Color getBackgroundColor() const;
+	virtual sf::Color getTextColor() const;
+	virtual sf::Font getTextFont() const;
+	virtual unsigned getOutlineThickness() const;
+	virtual sf::Color getOutlineColor() const;
+	virtual unsigned getCharacterSize() const;
 	sf::Color getBackgroundColorHover() const;
 	sf::Color getTextColorHover() const;
-	unsigned getOutlineThickness() const;
-	sf::Color getOutlineColor() const;
 	sf::Color getOutlineColorHover() const;
-	unsigned getCharacterSize() const;
 	sf::Color getBackgroundColorClicked() const;
 
 	/* SETTERS */
-	void setText(const std::string & s_text_arg);
-	void setSize(const sf::Vector2f & v2_size_arg);
-	void setPosition(const sf::Vector2f & v2_position_arg);
-	void setBackgroundColor(const sf::Color & c_background_arg);
-	void setTextColor(const sf::Color & c_text_arg);
-	void setTextFont(const sf::Font & f_text_arg);
+	virtual void setSize(const sf::Vector2f & v2_size_arg);
+	virtual void setPosition(const sf::Vector2f & v2_position_arg);
+	virtual void setText(const std::string & s_text_arg);
+	virtual void setBackgroundColor(const sf::Color & c_background_arg);
+	virtual void setTextColor(const sf::Color & c_text_arg);
+	virtual void setTextFont(const sf::Font & f_text_arg);
+	virtual void setOutlineThickness(const unsigned u_outline_thickness_arg);
+	virtual void setOutlineColor(const sf::Color & c_outline_arg);
+	virtual void setCharacterSize(const unsigned u_text_arg);
 	void setBackgroundColorHover(const sf::Color & c_background_hover_arg);
 	void setTextColorHover(const sf::Color & c_text_hover_arg);
-	void setOutlineThickness(const unsigned u_outline_thickness_arg);
-	void setOutlineColor(const sf::Color & c_outline_arg);
 	void setOutlineColorHover(const sf::Color & c_outline_hover_arg);
-	void setCharacterSize(const unsigned u_text_arg);
 	void setBackgroundColorClicked(const sf::Color & c_background_clicked_arg);
 
 	/* OTHER */

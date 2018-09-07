@@ -2,32 +2,19 @@
 #define SFML_GUI_TEXTFIELD
 
 #include <SFML/Graphics.hpp>
+#include "sfml_gui_element.hpp"
 #include <string>
 
 namespace sf::GUI
 {
 
-class TextField : public sf::Drawable {
+class TextField : public Element {
 /* VARIABLES */
 public:
 	
 private:
-	sf::Vector2f	v2_size;
-	sf::Vector2f	v2_position;
-
-	sf::Font		f_text;
-	unsigned 		u_text;
-
-	std::string		s_text;
-	sf::Color		c_text;
-	
 	std::string		s_text_default;
 	sf::Color		c_text_default;
-
-	sf::Color		c_background;
-
-	unsigned		u_outline_thickness;
-	sf::Color		c_outline;
 
 	unsigned 		u_max_characters;
 
@@ -39,31 +26,31 @@ public:
 	~TextField() = default;
 
 	/* GETTERS */
-	sf::Vector2f getSize() const;
-	sf::Vector2f getPosition() const;
-	sf::Font getTextFont() const;
-	unsigned getCharacterSize() const;
-	std::string getText() const;
-	sf::Color getTextColor() const;
+	virtual sf::Vector2f getSize() const;
+	virtual sf::Vector2f getPosition() const;
+	virtual sf::Font getTextFont() const;
+	virtual std::string getText() const;
+	virtual sf::Color getTextColor() const;
+	virtual unsigned getCharacterSize() const;
+	virtual sf::Color getBackgroundColor() const;
+	virtual unsigned getOutlineThickness() const;
+	virtual sf::Color getOutlineColor() const;
+	unsigned getMaxCharacters() const;
 	std::string getTextDefault() const;
 	sf::Color getTextDefaultColor() const;
-	sf::Color getBackgroundColor() const;
-	unsigned getOutlineThickness() const;
-	sf::Color getOutlineColor() const;
-	unsigned getMaxCharacters() const;
 
 	/* SETTERS */
-	void setSize(const sf::Vector2f & v2_size_arg);
-	void setPosition(const sf::Vector2f & v2_position_arg);
-	void setTextFont(const sf::Font & f_text_arg);
-	void setCharacterSize(const unsigned u_text_arg);
-	void setText(const std::string & s_text_arg);
-	void setTextColor(const sf::Color & c_text_arg);
+	virtual void setSize(const sf::Vector2f & v2_size_arg);
+	virtual void setPosition(const sf::Vector2f & v2_position_arg);
+	virtual void setTextFont(const sf::Font & f_text_arg);
+	virtual void setCharacterSize(const unsigned u_text_arg);
+	virtual void setText(const std::string & s_text_arg);
+	virtual void setBackgroundColor(const sf::Color & c_background_arg);
+	virtual void setOutlineThickness(const unsigned u_outline_thickness_arg);
+	virtual void setOutlineColor(const sf::Color & c_outline_arg);
+	virtual void setTextColor(const sf::Color & c_text_arg);
 	void setDefaultText(const std::string & s_text_default_arg);
 	void setDefaultTextColor(const sf::Color & c_text_default_arg);
-	void setBackgroundColor(const sf::Color & c_background_arg);
-	void setOutlineThickness(const unsigned u_outline_thickness_arg);
-	void setOutlineColor(const sf::Color & c_outline_arg);
 	void setMaxCharacters(const unsigned u_max_characters_arg);
 
 	/* OTHER */
