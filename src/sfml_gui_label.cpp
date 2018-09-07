@@ -15,9 +15,12 @@ void Label::draw(sf::RenderTarget & target, sf::RenderStates states) const {
 	t_text.setFont(f_text);
 	t_text.setColor(c_text);
 
-	unsigned x_text = (rs_label.getSize().x - t_text.getLocalBounds().width) / 2;
-	unsigned y_text = (rs_label.getSize().y - t_text.getLocalBounds().height) / 2;
-	t_text.setPosition(rs_label.getPosition().x + x_text, rs_label.getPosition().y + y_text);
+	double x_text = rs_label.getPosition().x + rs_label.getSize().x / 2.0f;
+	double y_text = rs_label.getPosition().y + rs_label.getSize().y / 2.0f;
+
+	sf::FloatRect r_text = t_text.getLocalBounds();
+	t_text.setOrigin(r_text.left + r_text.width/2.0f, r_text.top + r_text.height/2.0f);
+	t_text.setPosition(sf::Vector2f(x_text, y_text));
 
 	target.draw(rs_label, states);
 	target.draw(t_text, states);
