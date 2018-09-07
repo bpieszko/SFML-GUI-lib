@@ -17,11 +17,9 @@ DISTRIBUTION	= $(HEADERS) $(SOURCES) $(EXTRAS)
 .PHONY: all clean dist
 
 all: $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SOURCES))
-	rm $(BUILD_DIR)/*.d
 
 test: $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SOURCES))
 	$(CXX) $(CXXFLAGS) -o app.e $^ main.cpp $(LIBS)
-	rm $(BUILD_DIR)/*.d
 
 clean: 
 	rm -f $(BUILD_DIR)/*.o $(PACKAGE)$(LIBEXT) app.e
